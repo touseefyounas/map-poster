@@ -7,10 +7,22 @@ const accessToken = "pk.eyJ1IjoidG91c2VlZnlvdW5hcyIsImEiOiJjbHNnajllcTExbmtiMmxz
 
 const Map = ({mapContainerRef}) => {
 
+
   return (
     <>
-      
-      <div id="map-container" ref={mapContainerRef} style={{ height: 900 }} />
+      <div className="flex justify-center items-center h-full w-full" >
+        <div className="bg-white shadow-black shadow-2xl h-5/6 w-9/12 p-4">
+        <div className="h-full w-full border-2 border-black">
+          <div className="border-b-2 p-1 border-black h-5/6 w-full">
+        <div id="map-container" ref={mapContainerRef} className="w-full h-full" />
+        </div>
+        <div className="h-1/6 flex flex-col items-end p-2">
+          <h1 className="font-bold text-2xl">New York</h1>
+          <h1 className="font-normal text-xl">United States</h1>
+        </div>
+        </div>
+        </div>
+      </div>
     </>
   );
 }
