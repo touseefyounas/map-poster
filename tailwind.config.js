@@ -11,7 +11,12 @@ module.exports = {
         accent: '#C7D1BE',
         background: '#F2F5EF',
         text: '#353F2F',
-      }
+      },
+      aspectRatio: {
+        'poster-landscape': '1.33333333', // 4:3
+        'poster-portrait': '0.75',        // 3:4
+      },
+
     },
   },
   plugins: [],
