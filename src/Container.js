@@ -18,6 +18,9 @@ const Container = ()=> {
         pitch: null,
     })
     const [mapStyle, setMapStyle] = useState('');
+    const [orientation, setOrientation ] = useState('landscape');
+
+
     useEffect(() => {
         mapboxgl.accessToken = accessToken;
     
@@ -57,13 +60,13 @@ const Container = ()=> {
     }, [mapData])
 
     return (
-    <div className="grid grid-rows-auto md:grid-rows-12 grid-cols-1 md:grid-cols-12 min-h-screen">
-        <div className="row-start-1 md:row-span-12 col-start-1 md:col-start-4 md:col-span-9 bg-amber-50">
-            <Map mapContainerRef={mapContainerRef}/>
+    <div className="grid grid-rows-auto md:grid-rows-12 grid-cols-1 md:grid-cols-12">
+        <div className="row-start-1 md:row-span-12 col-start-1 md:col-start-4 md:col-span-9 bg-amber-50 h-screen">
+            <Map mapContainerRef={mapContainerRef} orientation={orientation}/>
         </div>
         <div className="row-start-2 md:row-span-12 md:row-start-1 md:col-start-1 md:col-span-3 bg-white">
             <Searchbox accessToken={accessToken} mapboxgl={mapboxgl} inputValue={inputValue} setInputValue={setInputValue} mapInstanceRef={mapInstanceRef} />
-            <Orientation/>
+            <Orientation orientation={orientation} setOrientation={setOrientation}/>
             <StyleCard/>
         </div>
     </div>
