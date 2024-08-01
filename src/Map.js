@@ -1,12 +1,10 @@
 
-import { SearchBox } from "@mapbox/search-js-react";
-import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import './map.css';
 
-const accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+//const accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
-const Map = ({mapContainerRef, orientation, mapData}) => {
+const Map = ({mapContainerRef, orientation, mapData, mapLocation}) => {
 
   let lat = null;
   let long = null;
@@ -30,15 +28,15 @@ const Map = ({mapContainerRef, orientation, mapData}) => {
   return (
     <>
      <div className="flex justify-center items-center w-full h-screen p-16">
-        <div className={`relative ${orientation==='landscape'?landscapeStyle:portraitStyle} bg-white shadow-black shadow-2xl p-4 max-w-full max-h-screen`}>
+        <div className={`relative ${orientation==='landscape'? landscapeStyle : portraitStyle} bg-white shadow-black shadow-2xl p-4 max-w-full max-h-screen`}>
         <div className="relative flex h-full w-full border-2 border-black max-w-full max-h-screen">
         <div className="p-1 border-black h-full w-full">
           <div id="map-container" ref={mapContainerRef} className="w-full h-full" />
         </div>
-        <div className="absolute self-end  text-white w-full pb-10 px-5 pt-20">
-          <div className="block text-center text-[2em] font-normal overflow-hidden">New York</div>
+        <div className="absolute self-end  text-white w-full pb-10 px-5 pt-15 bg-gradient-to-b from-transparent to-white">
+          <div className="block text-center text-[2em] font-normal overflow-hidden z-10">{mapLocation?mapLocation.city: 'New York'}</div>
           <div className="block divider text-center overflow-hidden">
-            <span className="block-inline relative text-[1em]">United States</span>
+            <span className="block-inline relative text-[1em]">{mapLocation? mapLocation.country: 'United States'}</span>
             </div>
           <div className="text-center text-[0.7em] font-light">{mapData.center?`${lat} / ${long}`: '40.7128 °N / 74.0060 °W'}</div>
         </div>
