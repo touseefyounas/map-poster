@@ -1,4 +1,4 @@
-import styles from "./utils/styles";
+import { styles } from "./utils/styles";
 
 
 const StyleCard = ({mapStyle, setMapStyle})=> {
@@ -9,7 +9,7 @@ const StyleCard = ({mapStyle, setMapStyle})=> {
 
     return (
         <div className="flex flex-col justify-center items-center w-full">
-            <label className="mb-2 text-sm font-semibold w-5/6">Style</label>
+            <label className="mb-2 text-sm font-semibold w-5/6 text-text">Style</label>
         <div className="flex flex-wrap flex-row gap-3 m-3 justify-evenly">
         
             {styles.map(style=> {

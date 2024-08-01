@@ -5,6 +5,8 @@ import Orientation from "./Orientation";
 import Map from "./Map";
 import Searchbox from "./SearchBox";
 import StyleCard from './StyleCard';
+import Size from './size';
+import Format from './format';
 
 const Container = ()=> {
     const accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
@@ -24,6 +26,8 @@ const Container = ()=> {
     const [mapStyle, setMapStyle] = useState('mapbox://styles/touseefyounas/clv4bn8lr02a401pkfamv245h');
     const [orientation, setOrientation ] = useState('portrait');
     const [mapLocation, setMapLocation ] = useState(null);
+    const [mapSize, setMapSize ] = useState(1);
+    const [mapFormat, setMapFormat ] = useState('Print');
 
 
     useEffect(() => {
@@ -92,14 +96,16 @@ const Container = ()=> {
     }, [mapData])
 
     return (
-    <div className="grid grid-rows-auto lg:grid-rows-12 grid-cols-1 lg:grid-cols-12">
-        <div className="row-start-1 lg:row-span-12 col-start-1 lg:col-start-4 md:col-span-9 bg-amber-50 lg:h-screen">
+    <div className="grid grid-rows-auto lg:grid-rows-12 grid-cols-1 lg:grid-cols-12 h-screen">
+        <div className="row-start-1 lg:row-span-12 col-start-1 lg:col-start-4 md:col-span-9 bg-amber-50 ">
             <Map mapContainerRef={mapContainerRef} orientation={orientation} mapData={mapData} mapLocation={mapLocation}/>
         </div>
-        <div className="row-start-2 lg:row-span-12 lg:row-start-1 lg:col-start-1 lg:col-span-3 bg-white">
+        <div className="row-start-2 lg:row-span-12 lg:row-start-1 lg:col-start-1 lg:col-span-3 bg-white overflow-y-auto">
             <Searchbox accessToken={accessToken} mapboxgl={mapboxgl} inputValue={inputValue} setInputValue={setInputValue} mapInstanceRef={mapInstanceRef} />
             <Orientation orientation={orientation} setOrientation={setOrientation}/>
             <StyleCard mapStyle={mapStyle} setMapStyle={setMapStyle}/>
+            <Size mapSize={mapSize} setMapSize={setMapSize}/>
+            <Format mapFormat={mapFormat} setMapFormat={setMapFormat}/>
         </div>
     </div>
     )

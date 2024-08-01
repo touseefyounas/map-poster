@@ -55,4 +55,28 @@ const styles = [
     },
 ]
 
-export default styles;
+const sizes = [
+    {
+        size: 1,
+        sizeName: '12" x 16"',
+    },
+    {
+        size: 2,
+        sizeName: '16" x 18"',
+    },
+    {
+        size: 3,
+        sizeName: '18" x 24"',
+    },
+    {
+        size: 4,
+        sizeName: '24" x 36"',
+    },
+    
+]
+
+
+export  {
+        styles,
+        sizes,
+        };
