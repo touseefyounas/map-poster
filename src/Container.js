@@ -6,7 +6,7 @@ import Searchbox from "./SearchBox";
 import StyleCard from './StyleCard';
 
 const Container = ()=> {
-    const accessToken = 'pk.eyJ1IjoidG91c2VlZnlvdW5hcyIsImEiOiJjbHNnajllcTExbmtiMmxzYjM2YnBxa3U0In0.Q9H6YygAJWXVQiQ0QAU-UQ'
+    const accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
     const mapContainerRef = useRef();
     const mapInstanceRef = useRef();
     const [mapLoaded, setMapLoaded] = useState(false);
