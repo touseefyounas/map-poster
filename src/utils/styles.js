@@ -37,9 +37,9 @@ const styles = [
     },
     {
         style: 7,
-        styleName: 'Golden',
-        styleUrl: 'mapbox://styles/touseefyounas/clsgjnkok016801qr9l8gbwix',
-        styleImage: '/Golden.png'
+        styleName: 'Maroon',
+        styleUrl: 'mapbox://styles/touseefyounas/clzbb6kfb00k201qmac8mddet',
+        styleImage: '/Maroon.png'
     },
     {
         style: 8,

@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+
 import { SearchBox } from "@mapbox/search-js-react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -6,8 +6,24 @@ import './map.css';
 
 const accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
-const Map = ({mapContainerRef, orientation}) => {
+const Map = ({mapContainerRef, orientation, mapData}) => {
 
+  let lat = null;
+  let long = null;
+
+  if(mapData.center) {
+    if (mapData.center.lat<0){
+      lat = `${Math.abs(mapData.center.lat).toFixed(2)} °S`
+    } else {
+      lat = `${Math.abs(mapData.center.lat).toFixed(2)} °N`
+    }
+    if (mapData.center.lng<0) {
+      long = `${Math.abs(mapData.center.lng).toFixed(2)} °W`
+    } else {
+      long = `${Math.abs(mapData.center.lng).toFixed(2)} °E`
+    }
+  } 
+  
   const landscapeStyle = 'w-[540px] aspect-poster-landscape';
   const portraitStyle = 'h-[540px] aspect-poster-portrait';
 
@@ -24,6 +40,7 @@ const Map = ({mapContainerRef, orientation}) => {
           <div className="block divider text-center overflow-hidden">
             <span className="block-inline relative text-[1em]">United States</span>
             </div>
+          <div className="text-center text-[0.7em] font-light">{mapData.center?`${lat} / ${long}`: '40.7128 °N / 74.0060 °W'}</div>
         </div>
         {/* <div className="h-1/6 flex flex-col w-full justify-center items-center"> 
           <div className="font-semibold text-[3vw]">New York</div>

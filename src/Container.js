@@ -6,7 +6,7 @@ import Searchbox from "./SearchBox";
 import StyleCard from './StyleCard';
 
 const Container = ()=> {
-    const accessToken = process.env.REACT_APP_MAPBOX_TOKEN
+    const accessToken = 'pk.eyJ1IjoidG91c2VlZnlvdW5hcyIsImEiOiJjbHNnajllcTExbmtiMmxzYjM2YnBxa3U0In0.Q9H6YygAJWXVQiQ0QAU-UQ'
     const mapContainerRef = useRef();
     const mapInstanceRef = useRef();
     const [mapLoaded, setMapLoaded] = useState(false);
@@ -26,7 +26,7 @@ const Container = ()=> {
     
         mapInstanceRef.current = new mapboxgl.Map({
           container: mapContainerRef.current, // container ID
-          center: [-81.3, 28.5], // starting position [lng, lat]
+          center: [-74.0060, 40.7128], // starting position [lng, lat]
           zoom: 9, // starting zoom
           style: mapStyle,
         });
@@ -77,7 +77,7 @@ const Container = ()=> {
     return (
     <div className="grid grid-rows-auto lg:grid-rows-12 grid-cols-1 lg:grid-cols-12">
         <div className="row-start-1 lg:row-span-12 col-start-1 lg:col-start-4 md:col-span-9 bg-amber-50 lg:h-screen">
-            <Map mapContainerRef={mapContainerRef} orientation={orientation}/>
+            <Map mapContainerRef={mapContainerRef} orientation={orientation} mapData={mapData}/>
         </div>
         <div className="row-start-2 lg:row-span-12 lg:row-start-1 lg:col-start-1 lg:col-span-3 bg-white">
             <Searchbox accessToken={accessToken} mapboxgl={mapboxgl} inputValue={inputValue} setInputValue={setInputValue} mapInstanceRef={mapInstanceRef} />
