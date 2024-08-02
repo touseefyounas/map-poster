@@ -32,7 +32,7 @@ const SideBar = ({accessToken, mapboxgl, inputValue, setInputValue, mapInstanceR
                 </div>
 
                 <div className="mb-10">
-                    <Labels />
+                    <Labels headline={headline} setHeadline={setHeadline} tagline={tagline} setTagline={setTagline} subtitle={subtitle} setSubtitle={setSubtitle}/>
                 </div>
             </div>
             </div>

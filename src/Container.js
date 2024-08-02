@@ -99,8 +99,15 @@ const Container = ()=> {
 
     return (
     <div className="grid grid-rows-auto lg:grid-rows-12 grid-cols-1 lg:grid-cols-12 h-screen">
-        <div className="row-start-1 lg:row-span-12 col-start-1 lg:col-start-4 md:col-span-9 bg-amber-50 ">
-            <Map mapContainerRef={mapContainerRef} orientation={orientation} mapData={mapData} mapLocation={mapLocation}/>
+        <div className="row-start-1 lg:row-span-12 col-start-1 lg:col-start-4 md:col-span-9 bg-background ">
+            <Map mapContainerRef={mapContainerRef} 
+            orientation={orientation} 
+            mapData={mapData} 
+            mapLocation={mapLocation} 
+            headline={headline}
+            tagline={tagline}
+            subtitle={subtitle}
+            />
         </div>
         <div className="row-start-2 lg:row-span-12 lg:row-start-1 lg:col-start-1 lg:col-span-3 bg-white lg:overflow-y-auto">
             <SideBar 
