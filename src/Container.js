@@ -30,7 +30,7 @@ const Container = ()=> {
     const [headline, setHeadline ] = useState(null);
     const [tagline, setTagline ] = useState(null);
     const [subtitle, setSubtitle ] = useState(null);
-
+    const [labels, setLabels ] = useState(true);
 
     useEffect(() => {
         mapboxgl.accessToken = accessToken;
@@ -130,6 +130,8 @@ const Container = ()=> {
             setTagline={setTagline}
             subtitle={subtitle}
             setSubtitle={setSubtitle}
+            labels={labels}
+            setLabels={setLabels}
 
             />
         </div>

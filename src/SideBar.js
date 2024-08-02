@@ -4,8 +4,9 @@ import StyleCard from "./StyleCard";
 import Size from "./size";
 import Format from './format';
 import Labels from "./Labels";
+import ToggleButton from './utils/toggleButton';
 
-const SideBar = ({accessToken, mapboxgl, inputValue, setInputValue, mapInstanceRef, orientation, setOrientation, mapStyle, setMapStyle, mapSize, setMapSize, mapFormat, setMapFormat, headline, setHeadline, tagline, setTagline, subtitle, setSubtitle}) => {
+const SideBar = ({accessToken, mapboxgl, inputValue, setInputValue, mapInstanceRef, orientation, setOrientation, mapStyle, setMapStyle, mapSize, setMapSize, mapFormat, setMapFormat, headline, setHeadline, tagline, setTagline, subtitle, setSubtitle, labels, setLabels}) => {
 
     return (
         <div className="w-full">
@@ -24,6 +25,10 @@ const SideBar = ({accessToken, mapboxgl, inputValue, setInputValue, mapInstanceR
                 </div>
 
                 <div className="mb-10">
+                    <Labels headline={headline} setHeadline={setHeadline} tagline={tagline} setTagline={setTagline} subtitle={subtitle} setSubtitle={setSubtitle} labels={labels} setLabels={setLabels}/>
+                </div>
+
+                <div className="mb-10">
                     <Size mapSize={mapSize} setMapSize={setMapSize}/>
                 </div>
 
@@ -31,9 +36,7 @@ const SideBar = ({accessToken, mapboxgl, inputValue, setInputValue, mapInstanceR
                     <Format mapFormat={mapFormat} setMapFormat={setMapFormat}/>
                 </div>
 
-                <div className="mb-10">
-                    <Labels headline={headline} setHeadline={setHeadline} tagline={tagline} setTagline={setTagline} subtitle={subtitle} setSubtitle={setSubtitle}/>
-                </div>
+
             </div>
             </div>
         </div>
