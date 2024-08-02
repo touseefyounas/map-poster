@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { reverseGeocode, processGeocodeResponse } from './utils/mapboxApi';
 import mapboxgl from 'mapbox-gl';
-import Orientation from "./Orientation";
 import Map from "./Map";
-import Searchbox from "./SearchBox";
-import StyleCard from './StyleCard';
-import Size from './size';
-import Format from './format';
+import SideBar from './SideBar';
+
+
+
 
 const Container = ()=> {
     const accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
@@ -28,6 +27,9 @@ const Container = ()=> {
     const [mapLocation, setMapLocation ] = useState(null);
     const [mapSize, setMapSize ] = useState(1);
     const [mapFormat, setMapFormat ] = useState('Print');
+    const [headline, setHeadline ] = useState(null);
+    const [tagline, setTagline ] = useState(null);
+    const [subtitle, setSubtitle ] = useState(null);
 
 
     useEffect(() => {
@@ -100,12 +102,29 @@ const Container = ()=> {
         <div className="row-start-1 lg:row-span-12 col-start-1 lg:col-start-4 md:col-span-9 bg-amber-50 ">
             <Map mapContainerRef={mapContainerRef} orientation={orientation} mapData={mapData} mapLocation={mapLocation}/>
         </div>
-        <div className="row-start-2 lg:row-span-12 lg:row-start-1 lg:col-start-1 lg:col-span-3 bg-white overflow-y-auto">
-            <Searchbox accessToken={accessToken} mapboxgl={mapboxgl} inputValue={inputValue} setInputValue={setInputValue} mapInstanceRef={mapInstanceRef} />
-            <Orientation orientation={orientation} setOrientation={setOrientation}/>
-            <StyleCard mapStyle={mapStyle} setMapStyle={setMapStyle}/>
-            <Size mapSize={mapSize} setMapSize={setMapSize}/>
-            <Format mapFormat={mapFormat} setMapFormat={setMapFormat}/>
+        <div className="row-start-2 lg:row-span-12 lg:row-start-1 lg:col-start-1 lg:col-span-3 bg-white lg:overflow-y-auto">
+            <SideBar 
+            accessToken={accessToken} 
+            mapboxgl={mapboxgl} 
+            inputValue={inputValue} 
+            setInputValue={setInputValue} 
+            mapInstanceRef={mapInstanceRef} 
+            orientation={orientation} 
+            setOrientation={setOrientation}
+            mapStyle={mapStyle} 
+            setMapStyle={setMapStyle}
+            mapSize={mapSize} 
+            setMapSize={setMapSize}
+            mapFormat={mapFormat} 
+            setMapFormat={setMapFormat}
+            headline={headline}
+            setHeadline={setHeadline}
+            tagline={tagline}
+            setTagline={setTagline}
+            subtitle={subtitle}
+            setSubtitle={setSubtitle}
+
+            />
         </div>
     </div>
     )
