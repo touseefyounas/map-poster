@@ -4,7 +4,7 @@ import './map.css';
 
 //const accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
-const Map = ({mapContainerRef, orientation, mapData, mapLocation, headline, tagline, subtitle}) => {
+const Map = ({mapContainerRef, orientation, mapData, mapLocation, headline, tagline, subtitle, labels}) => {
 
   let lat = null;
   let long = null;
@@ -33,7 +33,7 @@ const Map = ({mapContainerRef, orientation, mapData, mapLocation, headline, tagl
         <div className="p-1 border-black h-full w-full">
           <div id="map-container" ref={mapContainerRef} className="w-full h-full" />
         </div>
-        <div className="absolute self-end  text-white w-full pb-10 px-5 pt-15"> 
+        <div className={`${labels ? 'block' : 'hidden'} absolute self-end  text-white w-full pb-10 px-5 pt-15`}> 
           <div className="block text-center text-[2em] font-normal overflow-hidden z-10">{headline? headline : mapLocation?mapLocation.city: 'New York'}</div>
           <div className="block divider text-center overflow-hidden">
             <span className="block-inline relative text-[1em]">{tagline? tagline : mapLocation? mapLocation.country: 'United States'}</span>

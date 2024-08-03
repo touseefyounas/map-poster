@@ -4,7 +4,6 @@ import StyleCard from "./StyleCard";
 import Size from "./size";
 import Format from './format';
 import Labels from "./Labels";
-import ToggleButton from './utils/toggleButton';
 
 const SideBar = ({accessToken, mapboxgl, inputValue, setInputValue, mapInstanceRef, orientation, setOrientation, mapStyle, setMapStyle, mapSize, setMapSize, mapFormat, setMapFormat, headline, setHeadline, tagline, setTagline, subtitle, setSubtitle, labels, setLabels}) => {
 
