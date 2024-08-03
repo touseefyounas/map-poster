@@ -5,7 +5,7 @@ import Size from "./size";
 import Format from './format';
 import Labels from "./Labels";
 
-const SideBar = ({accessToken, mapboxgl, inputValue, setInputValue, mapInstanceRef, orientation, setOrientation, mapStyle, setMapStyle, mapSize, setMapSize, mapFormat, setMapFormat, headline, setHeadline, tagline, setTagline, subtitle, setSubtitle, labels, setLabels}) => {
+const SideBar = ({accessToken, mapboxgl, inputValue, setInputValue, mapInstanceRef, orientation, setOrientation, mapStyle, setMapStyle, mapSize, setMapSize, mapFormat, setMapFormat, headline, setHeadline, tagline, setTagline, subtitle, setSubtitle, labels, setLabels, mapLocation}) => {
 
     return (
         <div className="w-full">
@@ -24,7 +24,7 @@ const SideBar = ({accessToken, mapboxgl, inputValue, setInputValue, mapInstanceR
                 </div>
 
                 <div className="mb-10">
-                    <Labels headline={headline} setHeadline={setHeadline} tagline={tagline} setTagline={setTagline} subtitle={subtitle} setSubtitle={setSubtitle} labels={labels} setLabels={setLabels}/>
+                    <Labels headline={headline} setHeadline={setHeadline} tagline={tagline} setTagline={setTagline} subtitle={subtitle} setSubtitle={setSubtitle} labels={labels} setLabels={setLabels} mapLocation={mapLocation}/>
                 </div>
 
                 <div className="mb-10">

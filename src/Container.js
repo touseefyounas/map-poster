@@ -90,7 +90,7 @@ const Container = ()=> {
         
         if (mapData.center) {
             reverseGeocode(mapData.center.lng, mapData.center.lat, accessToken, mapsToken)
-            .then(geocodeData => processGeocodeResponse(geocodeData))
+            .then(geocodeData => processGeocodeResponse(geocodeData, mapData))
             .then(locationData => setMapLocation(locationData))
             .catch(err => console.log('Error:', err));
             console.log('Current Location: ', mapLocation);
@@ -137,6 +137,7 @@ const Container = ()=> {
             setSubtitle={setSubtitle}
             labels={labels}
             setLabels={setLabels}
+            mapLocation={mapLocation}
 
             />
         </div>

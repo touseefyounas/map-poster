@@ -31,8 +31,9 @@ const reverseGeocode = async (lng, lat, MapboxApiKey, googleApiKey) => {
 }
 
 
-const processGeocodeResponse = (data) => {
+const processGeocodeResponse = (data, mapData) => {
     let city, country;
+    let center = {lat: null, long: null};
 
     // Check if the response is an array (indicating it's from Google)
     if (Array.isArray(data)) {
@@ -50,7 +51,20 @@ const processGeocodeResponse = (data) => {
 		 city = data.place.name;
 		country = data.country.name;
 	}
-	return {city, country};
+
+    if(mapData.center) {
+        if (mapData.center.lat<0){
+            center.lat = `${Math.abs(mapData.center.lat).toFixed(2)} °S`
+        } else {
+            center.lat = `${Math.abs(mapData.center.lat).toFixed(2)} °N`
+        }
+        if (mapData.center.lng<0) {
+          center.long = `${Math.abs(mapData.center.lng).toFixed(2)} °W`
+        } else {
+            center.long = `${Math.abs(mapData.center.lng).toFixed(2)} °E`
+        }
+      } 
+	return {city, country, center};
 }
 
 
