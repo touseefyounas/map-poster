@@ -1,4 +1,4 @@
-
+import { useState, useEffect } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import './map.css';
 
@@ -6,16 +6,46 @@ import './map.css';
 
 const Map = ({mapContainerRef, orientation, mapData, mapLocation, headline, tagline, subtitle, labels}) => {
 
+  const [scale, setScale ] = useState(1);
 
   
-  const landscapeStyle = 'w-[540px] aspect-poster-landscape';
-  const portraitStyle = 'h-[540px] aspect-poster-portrait';
+
+  const calculateScale = (width) => {
+    const minWidth = 320
+    const maxWidth = 1920
+    const minScale = 0.50
+    const maxScale = 1
+
+    return ((0.50/1600)*width) + minScale;
+  }
+
+
+  useEffect( () => {  
+
+    const handleScale = () => {
+      const width = window.innerWidth;
+      const newScale = calculateScale(width);
+      console.log('Width: ', width);
+      console.log('New scale:', newScale);
+      setScale(newScale);
+    }
+
+    handleScale();
+
+    window.addEventListener('resize', handleScale);
+    return () => window.removeEventListener('resize', handleScale);
+    
+  },[])
+  
+  const landscapeStyle = 'w-[720px] h-[540px]';
+  const portraitStyle = 'w-[540px] h-[720px]';
 
   return (
     <>
-     <div className="flex justify-center items-center w-full h-screen p-16">
-        <div className={`relative ${orientation==='landscape'? landscapeStyle : portraitStyle} bg-white shadow-black shadow-2xl p-4 max-w-full max-h-screen`}>
-        <div className="relative flex h-full w-full border-2 border-black max-w-full max-h-screen">
+     <div className="flex justify-center items-center w-full h-screen overflow-hidden">
+      <div style={{ transform: `scale(${scale})`, transformOrigin: 'center' }}>
+        <div className={`relative ${orientation==='landscape'? landscapeStyle : portraitStyle} bg-white shadow-black shadow-2xl p-4`} style={{transform: `scale(${scale})`}}>
+        <div className="relative flex h-full w-full border-2 border-black">
         <div className="p-1 border-black h-full w-full">
           <div id="map-container" ref={mapContainerRef} className="w-full h-full" />
         </div>
@@ -32,6 +62,7 @@ const Map = ({mapContainerRef, orientation, mapData, mapLocation, headline, tagl
           <div className="font-medium pr-1.5 text-[2vw] md:text-[1vw]">United States</div>
         </div> */}
         {/* bg-gradient-to-b from-transparent to-white */}
+        </div>
         </div>
         </div>
         </div>

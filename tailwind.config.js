@@ -17,6 +17,7 @@ module.exports = {
         'poster-portrait': '0.75',        // 3:4
       },
 
+
     },
   },
   plugins: [],
