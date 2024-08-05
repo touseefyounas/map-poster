@@ -13,10 +13,10 @@ const Map = ({mapContainerRef, orientation, mapData, mapLocation, headline, tagl
   const calculateScale = (width) => {
     const minWidth = 320
     const maxWidth = 1920
-    const minScale = 0.50
+    const minScale = 0.30
     const maxScale = 1
 
-    return ((0.50/1600)*width) + minScale;
+    return (((maxScale-minScale)/(maxWidth-minWidth))*width) + minScale;
   }
 
 
