@@ -25,8 +25,8 @@ const Map = ({mapContainerRef, orientation, mapData, mapLocation, headline, tagl
     const handleScale = () => {
       const width = window.innerWidth;
       const newScale = calculateScale(width);
-      console.log('Width: ', width);
-      console.log('New scale:', newScale);
+      // console.log('Width: ', width);
+      // console.log('New scale:', newScale);
       setScale(newScale);
     }
 
@@ -44,7 +44,7 @@ const Map = ({mapContainerRef, orientation, mapData, mapLocation, headline, tagl
     <>
      <div className="flex justify-center items-center w-full h-screen overflow-hidden">
       <div style={{ transform: `scale(${scale})`, transformOrigin: 'center' }}>
-        <div className={`relative ${orientation==='landscape'? landscapeStyle : portraitStyle} bg-white shadow-black shadow-2xl p-4`} style={{transform: `scale(${scale})`}}>
+        <div className={`relative ${orientation==='landscape'? landscapeStyle : portraitStyle} bg-white shadow-black shadow-2xl p-4`}>
         <div className="relative flex h-full w-full border-2 border-black">
         <div className="p-1 border-black h-full w-full">
           <div id="map-container" ref={mapContainerRef} className="w-full h-full" />
