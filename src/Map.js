@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
 import './map.css';
+import Layout from "./Layout";
 
 //const accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
@@ -48,7 +49,8 @@ const Map = ({mapContainerRef, orientation, mapData, mapLocation, headline, tagl
         <div className="p-1 h-full w-full">
           <div id="map-container" ref={mapContainerRef} className="w-full h-full" />
         </div>
-        <div className={`flex items-center justify-between ${labels ? 'block' : 'hidden'} absolute self-end text-black bg-white z-10 w-full px-2 py-2`}>
+        <Layout mapLayout={mapLayout} labels={labels} headline={headline} tagline={tagline} subtitle={subtitle} mapData={mapData} />
+        {/* <div className={`flex items-center justify-between ${labels ? 'block' : 'hidden'} absolute self-end text-black bg-white z-10 w-full px-2 py-2`}>
             
             <div className="text-[1.5em] font-semibold font-mono tracking-wider overflow-hidden">{headline? headline : mapLocation?mapLocation.city: 'New York'}</div>
 
@@ -57,7 +59,7 @@ const Map = ({mapContainerRef, orientation, mapData, mapLocation, headline, tagl
               <div className="font-mono text-[0.7em] font-semibold">{subtitle? subtitle : mapLocation?`${mapLocation.center.lat} / ${mapLocation.center.long}`: '40.7128 °N / 74.0060 °W'}</div>
             </div>
 
-          </div>           
+          </div>            */}
              </div>
             </div>
           </div>
