@@ -49,7 +49,7 @@ const Map = ({mapContainerRef, orientation, mapData, mapLocation, headline, tagl
         <div className="p-1 h-full w-full">
           <div id="map-container" ref={mapContainerRef} className="w-full h-full" />
         </div>
-        <div className={`${labels ? 'block' : 'hidden'} absolute self-end  text-white w-full pb-10 px-5 pt-15`}> 
+        <div className={`${labels ? 'block' : 'hidden'} absolute self-end  text-black bg-white w-auto min-w-[240px] left-[50%] px-5 pb-2 my-5`} style={{ transform: 'translate(-50%)' }}> 
             <div className="block text-center text-[2em] font-bold tracking-wider overflow-hidden z-10">{headline? headline : mapLocation?mapLocation.city: 'New York'}</div>
             <div className="block divider text-center overflow-hidden">
                 <span className="block-inline relative text-[1em]">{tagline? tagline : mapLocation? mapLocation.country: 'United States'}</span>
