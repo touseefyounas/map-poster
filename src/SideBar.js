@@ -10,7 +10,7 @@ const SideBar = ({accessToken, mapboxgl, inputValue, setInputValue, mapInstanceR
     return (
         <div className="w-full">
             <div className="flex justify-center pt-5">
-            <div className="md:w-4/6 lg:w-full m-10 lg:m-0">
+            <div className="xs:w-full sm:w-4/6 md:w-3/6 lg:w-full m-2 lg:m-0">
                 <div className="mb-10">
                     <Searchbox accessToken={accessToken} mapboxgl={mapboxgl} inputValue={inputValue} setInputValue={setInputValue} mapInstanceRef={mapInstanceRef} />
                 </div>

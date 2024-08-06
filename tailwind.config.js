@@ -16,7 +16,9 @@ module.exports = {
         'poster-landscape': '1.33333333', // 4:3
         'poster-portrait': '0.75',        // 3:4
       },
-
+      screens: {
+        'xs': '448px',
+      }
 
     },
   },
