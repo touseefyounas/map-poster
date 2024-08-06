@@ -8,7 +8,6 @@ const Map = ({mapContainerRef, orientation, mapData, mapLocation, headline, tagl
 
   const [scale, setScale ] = useState(1);
 
-  
 
   const calculateScale = (width) => {
     const minWidth = 320
@@ -49,12 +48,15 @@ const Map = ({mapContainerRef, orientation, mapData, mapLocation, headline, tagl
         <div className="p-1 h-full w-full">
           <div id="map-container" ref={mapContainerRef} className="w-full h-full" />
         </div>
-        <div className={`${labels ? 'block' : 'hidden'} absolute self-end text-black bg-white z-10 w-full px-3 pb-2`}>
-            <div className="block text-end text-[1.5em] font-bold font-mono tracking-wider overflow-hidden">{headline? headline : mapLocation?mapLocation.city: 'New York'}</div>
-            <div className="block text-end tracking-wider overflow-hidden">
-                <span className="block-inline relative  text-[0.8em] font-mono">{tagline? tagline : mapLocation? mapLocation.country: 'United States'}</span>
+        <div className={`flex items-center justify-between ${labels ? 'block' : 'hidden'} absolute self-end text-black bg-white z-10 w-full px-2 py-2`}>
+            
+            <div className="text-[1.5em] font-semibold font-mono tracking-wider overflow-hidden">{headline? headline : mapLocation?mapLocation.city: 'New York'}</div>
+
+            <div>
+              <div className="tracking-wider text-end font-semibold text-[0.8em] font-mono">{tagline? tagline : mapLocation? mapLocation.country: 'United States'}</div>      
+              <div className="font-mono text-[0.7em] font-semibold">{subtitle? subtitle : mapLocation?`${mapLocation.center.lat} / ${mapLocation.center.long}`: '40.7128 °N / 74.0060 °W'}</div>
             </div>
-            <div className="font-mono text-[0.7em] text-end font-light">{subtitle? subtitle : mapLocation?`${mapLocation.center.lat} / ${mapLocation.center.long}`: '40.7128 °N / 74.0060 °W'}</div>
+
         </div>
         {/* <div className={`${labels ? 'block' : 'hidden'} absolute self-end  text-white w-full pb-10 px-5 pt-15`}> 
           <div className="block text-center text-[2em] font-bold tracking-wider overflow-hidden z-10">{headline? headline : mapLocation?mapLocation.city: 'New York'}</div>
@@ -75,9 +77,4 @@ const Map = ({mapContainerRef, orientation, mapData, mapLocation, headline, tagl
 
 
 export default Map;
-{/* <div className="h-1/6 flex flex-col w-full justify-center items-center"> 
-          <div className="font-semibold text-[3vw]">New York</div>
-          {/* <div className="font-bold pr-1.5 text-[3vw] md:text-[3vw]">New York</div>
-          <div className="font-medium pr-1.5 text-[2vw] md:text-[1vw]">United States</div>
-        </div> */}
-{/* bg-gradient-to-b from-transparent to-white */}
+

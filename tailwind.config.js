@@ -21,6 +21,9 @@ module.exports = {
       }
 
     },
+    fontFamily: {
+      'barcode': ["Libre Barcode 128 Text", 'mono'] 
+    }
   },
   plugins: [],
 }

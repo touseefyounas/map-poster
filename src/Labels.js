@@ -1,37 +1,30 @@
-import { useState, useEffect } from "react";
+
 import ToggleButton from "./utils/toggleButton";
 
 
 const Labels = ({headline, setHeadline, tagline, setTagline, subtitle, setSubtitle, labels, setLabels, mapLocation}) => {
     
-    const [headlineCustom, setHeadlineCustom ] = useState(false);
-    const [taglineCustom, setTaglineCustom ] = useState(false);
-    const [subtitleCustom, setSubtitleCustom ] = useState(false);
     
     const handleHeadline = (e) => {
         
         setHeadline(e.target.value);
-        setHeadlineCustom(true);
         
     }
 
     const handleTagline = (e) => {
         
         setTagline(e.target.value);
-        setTaglineCustom(true);
+
         
     }
 
     const handleSubtitle = (e) => {
        
         setSubtitle(e.target.value);
-        setSubtitleCustom(true);
         
     }
 
 
-
-    //`${mapLocation.center.lat} / ${mapLocation.center.long}`
     return (
     
     <div className="flex flex-col justify-center w-full items-center">
