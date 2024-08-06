@@ -23,6 +23,7 @@ const Container = ()=> {
         bounds: null,
     })
     const [mapStyle, setMapStyle] = useState('mapbox://styles/touseefyounas/clv4bn8lr02a401pkfamv245h');
+    const [mapLayout, setMapLayout ] = useState('default');
     const [orientation, setOrientation ] = useState('portrait');
     const [mapLocation, setMapLocation ] = useState(null);
     const [mapSize, setMapSize ] = useState(1);
@@ -112,6 +113,7 @@ const Container = ()=> {
             tagline={tagline}
             subtitle={subtitle}
             labels={labels}
+            mapLayout={mapLayout}
             />
         </div>
         <div className="row-start-2 lg:row-span-12 lg:row-start-1 lg:col-start-1 lg:col-span-3 bg-white lg:overflow-y-auto">
@@ -138,6 +140,8 @@ const Container = ()=> {
             labels={labels}
             setLabels={setLabels}
             mapLocation={mapLocation}
+            mapLayout={mapLayout}
+            setMapLayout={setMapLayout}
 
             />
         </div>

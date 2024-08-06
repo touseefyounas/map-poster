@@ -47,12 +47,7 @@ const styles = [
         styleUrl: 'mapbox://styles/touseefyounas/clualwfm2007x01qfch2ga9ah',
         styleImage: '/Night.png'
     },
-    {
-        style: 9,
-        styleName: 'Blue',
-        styleUrl: 'mapbox://styles/touseefyounas/clsgly3o503h301qq3y5vgpls',
-        styleImage: '/Blue.png'
-    },
+    
 ]
 
 const sizes = [
@@ -87,7 +82,8 @@ const layouts = [
             </div>
             <div className="text-center text-[0.7em] font-light">{subtitle? subtitle : mapLocation?`${mapLocation.center.lat} / ${mapLocation.center.long}`: '40.7128 °N / 74.0060 °W'}</div>
         </div>
-        }
+        },
+        layoutImage: '/layout4.png'
     },
     {
         id: 'block',
@@ -100,7 +96,8 @@ const layouts = [
             </div>
             <div className="text-center text-[0.7em] font-light">{subtitle? subtitle : mapLocation?`${mapLocation.center.lat} / ${mapLocation.center.long}`: '40.7128 °N / 74.0060 °W'}</div>
         </div>
-        }
+        },
+        layoutImage: '/layout1.png'
     },
     {
         id: 'mono',
@@ -113,7 +110,8 @@ const layouts = [
             </div>
             <div className="font-mono text-[0.7em] text-end font-light">{subtitle? subtitle : mapLocation?`${mapLocation.center.lat} / ${mapLocation.center.long}`: '40.7128 °N / 74.0060 °W'}</div>
         </div>
-        }
+        },
+        layoutImage: '/layout3.png'
     },
     {id: 'top',
     name: 'top',
@@ -127,7 +125,8 @@ const layouts = [
             <div className="font-mono text-[0.7em] font-semibold">{subtitle? subtitle : mapLocation?`${mapLocation.center.lat} / ${mapLocation.center.long}`: '40.7128 °N / 74.0060 °W'}</div>
             </div>
         </div>
-    }
+        },
+        layoutImage: '/layout2.png',
     },
     {
         id: 'bold',
