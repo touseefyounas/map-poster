@@ -21,6 +21,7 @@ const Container = ()=> {
         bearing: null,
         pitch: null,
         bounds: null,
+        type: null
     })
     const [mapStyle, setMapStyle] = useState('mapbox://styles/touseefyounas/clv4bn8lr02a401pkfamv245h');
     const [mapLayout, setMapLayout ] = useState('default');
@@ -39,16 +40,39 @@ const Container = ()=> {
         mapInstanceRef.current = new mapboxgl.Map({
           container: mapContainerRef.current, // container ID
           center: [-74.0060, 40.7128], // starting position [lng, lat]
-          zoom: 9, // starting zoom
+          zoom: 11, // starting zoom
           style: mapStyle,
         });
     
         mapInstanceRef.current.on("load", () => {
+            const map = mapInstanceRef.current;
+            const center = map.getCenter();
+            const zoom = map.getZoom();
+            const bearing = map.getBearing();
+            const pitch = map.getPitch();
+            const bounds = map.getBounds();
+
+            setMapData({
+                center: center,
+                zoom: zoom,
+                bearing: bearing,
+                pitch: pitch,
+                bounds: bounds,
+                type: 'Load'
+            })  
           setMapLoaded(true);
+    
         });
 
         mapInstanceRef.current.addControl(new mapboxgl.NavigationControl());
 
+        
+        
+        
+
+      }, []);
+    
+    useEffect(() => {
         // Add the moveend event listener
         mapInstanceRef.current.on('moveend', () => {
             const map = mapInstanceRef.current;
@@ -64,12 +88,12 @@ const Container = ()=> {
                 bearing: bearing,
                 pitch: pitch,
                 bounds: bounds,
+                type: 'Move End'
             })
         });
-        
+    }, [])
 
-      }, []);
-    
+
     useEffect(()=> {
         console.log('Map Data: ', mapData);
     }, [mapData])
@@ -142,7 +166,7 @@ const Container = ()=> {
             mapLocation={mapLocation}
             mapLayout={mapLayout}
             setMapLayout={setMapLayout}
-
+            
             />
         </div>
     </div>
