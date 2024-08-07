@@ -109,7 +109,7 @@ const layouts = [
         component: ({headline, tagline, subtitle, mapLocation, labels}) => {
         return (
         <div className={`${labels ? 'block' : 'hidden'} absolute self-end text-black bg-white z-10 w-full px-3 pb-2`}>
-            <div className="block text-end text-[1.5em] font-bold font-mono tracking-wider overflow-hidden">{headline? headline : mapLocation?mapLocation.city: 'New York'}</div>
+            <div className="block text-end text-[1.5em] font-semibold font-mono tracking-wider overflow-hidden">{headline? headline : mapLocation?mapLocation.city: 'New York'}</div>
             <div className="block text-end tracking-wider overflow-hidden">
                 <span className="block-inline relative  text-[0.8em] font-mono">{tagline? tagline : mapLocation? mapLocation.country: 'United States'}</span>
             </div>
@@ -119,21 +119,22 @@ const layouts = [
         },
         layoutImage: '/layout3.png'
     },
-    {id: 'top',
-    name: 'top',
-    component: ({headline, tagline, subtitle, mapLocation, labels}) => {
-        return (
-        <div className={`flex items-center justify-between ${labels ? 'block' : 'hidden'} absolute self-start text-black bg-white z-10 w-full px-2 pb-2`}>
-            
-            <div className="text-[1.5em] font-semibold font-mono tracking-wider overflow-hidden">{headline? headline : mapLocation?mapLocation.city: 'New York'}</div>
-            <div>
-            <div className="tracking-wider text-end font-semibold text-[0.8em] font-mono">{tagline? tagline : mapLocation? mapLocation.country: 'United States'}</div>
-            
-            <div className="font-mono text-[0.7em] font-semibold">{subtitle? subtitle : mapLocation?`${mapLocation.center.lat} / ${mapLocation.center.long}`: '40.7128 °N / 74.0060 °W'}</div>
+    {
+        id: 'top',
+        name: 'top',
+        component: ({headline, tagline, subtitle, mapLocation, labels}) => {
+            return (
+            <div className={`flex items-center justify-between ${labels ? 'block' : 'hidden'} absolute text-black bg-white z-10 w-full px-2 pb-2`}>
+                
+                <div className="text-[1.5em] font-semibold font-mono tracking-wider overflow-hidden">{headline? headline : mapLocation?mapLocation.city: 'New York'}</div>
+                <div>
+                <div className="tracking-wider text-end font-semibold text-[0.8em] font-mono">{tagline? tagline : mapLocation? mapLocation.country: 'United States'}</div>
+                
+                <div className="font-mono text-[0.7em] font-semibold">{subtitle? subtitle : mapLocation?`${mapLocation.center.lat} / ${mapLocation.center.long}`: '40.7128 °N / 74.0060 °W'}</div>
+                </div>
             </div>
-        </div>
-        )
-        },
+            )
+            },
         layoutImage: '/layout2.png',
     },
     {
@@ -153,7 +154,7 @@ const layouts = [
         name: 'bottom',
         component: ({headline, tagline, subtitle, mapLocation, labels}) => {
         return (
-        <div className={`flex items-center justify-between ${labels ? 'block' : 'hidden'} absolute self-end text-black bg-white z-10 w-full px-2 py-2`}>
+        <div className={`flex self-end items-center justify-between ${labels ? 'block' : 'hidden'} absolute text-black bg-white z-10 w-full px-2 py-2`}>
             
             <div className="text-[1.5em] font-semibold font-mono tracking-wider overflow-hidden">{headline? headline : mapLocation?mapLocation.city: 'New York'}</div>
 

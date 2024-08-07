@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Searchbox from "./SearchBox";
 import Orientation from "./Orientation";
 import StyleCard from "./StyleCard";
@@ -5,8 +6,10 @@ import Size from "./size";
 import Format from './format';
 import Labels from "./Labels";
 import LayoutCard from "./LayoutCard";
+import Order from "./Order";
 
 const SideBar = ({accessToken, mapboxgl, inputValue, setInputValue, mapInstanceRef, orientation, setOrientation, mapStyle, setMapStyle, mapSize, setMapSize, mapFormat, setMapFormat, headline, setHeadline, tagline, setTagline, subtitle, setSubtitle, labels, setLabels, mapLocation, mapLayout, setMapLayout}) => {
+
 
     return (
         <div className="w-full">
@@ -37,8 +40,12 @@ const SideBar = ({accessToken, mapboxgl, inputValue, setInputValue, mapInstanceR
                     <Orientation orientation={orientation} setOrientation={setOrientation}/>
                 </div>
 
-                <div className="mb-10">
+                <div className="mb-20">
                     <Format mapFormat={mapFormat} setMapFormat={setMapFormat}/>
+                </div>
+
+                <div className="sticky bottom-0">
+                    <Order />
                 </div>
 
             </div>

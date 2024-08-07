@@ -11,6 +11,7 @@ const Searchbox = ({accessToken, mapboxgl, inputValue, setInputValue, mapInstanc
       padding: '0.5em',
       borderRadius: '0px',
       boxShadow: '0 0 0 1px #C7D1BE',
+      colorBackground: '#F2F5EF'
     }
   };
   

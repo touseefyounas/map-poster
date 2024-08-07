@@ -104,7 +104,7 @@ const Container = ()=> {
 
     return (
     <div className="grid grid-rows-auto lg:grid-rows-12 grid-cols-1 lg:grid-cols-12 h-screen">
-        <div className="row-start-1 lg:row-span-12 col-start-1 lg:col-start-4 md:col-span-9 bg-background ">
+        <div className="row-start-1 lg:row-span-12 col-start-1 lg:col-start-4 md:col-span-9 bg-background">
             <Map mapContainerRef={mapContainerRef} 
             orientation={orientation} 
             mapData={mapData} 

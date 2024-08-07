@@ -1,5 +1,5 @@
 
-import ToggleButton from "./utils/toggleButton";
+import ToggleButton from "./toggleButton";
 
 
 const Labels = ({headline, setHeadline, tagline, setTagline, subtitle, setSubtitle, labels, setLabels, mapLocation}) => {
