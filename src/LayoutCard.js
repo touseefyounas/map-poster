@@ -1,4 +1,4 @@
-import { layouts } from "./styles";
+import { layouts } from "./utils/styles";
 
 
 const LayoutCard = ({ mapLayout, setMapLayout }) => {
@@ -15,7 +15,7 @@ const LayoutCard = ({ mapLayout, setMapLayout }) => {
         
             {layouts.map(layout=> {
                return(
-               <div key={layout.name} onClick={() => handleLayout(layout.id)} className={`${mapLayout === layout.id? 'bg-primary' : 'bg-white'} cursor-pointer w-1/5 p-1 rounded-md shadow-lg hover:border-2 hover:bg-accent hover:border-secondary hover:text-white`}>
+               <div key={layout.name} onClick={() => handleLayout(layout.id)} className={`${mapLayout === layout.id? 'bg-primary border-primary border-2' : 'bg-background border-2 border-accent'} cursor-pointer w-1/5 rounded-md shadow-lg hover:border-2 hover:bg-accent hover:border-secondary hover:text-white `}>
                     <img className="w-full h-full rounded-md" src={layout.layoutImage} alt=''/>
                 </div>
                )

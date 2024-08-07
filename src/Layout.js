@@ -1,7 +1,7 @@
 import { layouts } from "./utils/styles";
 
 
-const Layout = ({mapLayout, labels, ...props}) => {
+const Layout = ({mapLayout, ...props}) => {
     const layout = layouts.find(l => l.id === mapLayout)
 
     if (!layout) return null;

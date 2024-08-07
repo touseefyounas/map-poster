@@ -4,7 +4,7 @@ import StyleCard from "./StyleCard";
 import Size from "./size";
 import Format from './format';
 import Labels from "./Labels";
-import LayoutCard from "./utils/LayoutCard";
+import LayoutCard from "./LayoutCard";
 
 const SideBar = ({accessToken, mapboxgl, inputValue, setInputValue, mapInstanceRef, orientation, setOrientation, mapStyle, setMapStyle, mapSize, setMapSize, mapFormat, setMapFormat, headline, setHeadline, tagline, setTagline, subtitle, setSubtitle, labels, setLabels, mapLocation, mapLayout, setMapLayout}) => {
 

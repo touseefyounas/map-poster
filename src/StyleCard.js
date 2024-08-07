@@ -15,7 +15,7 @@ const StyleCard = ({mapStyle, setMapStyle})=> {
         
             {styles.map(style=> {
                return(
-               <div key={style.styleUrl} onClick={() => handleStyle(style.styleUrl)} className={`${mapStyle === style.styleUrl? 'bg-primary' : 'bg-white'} cursor-pointer w-1/5 p-1 rounded-md shadow-lg hover:border-2 hover:bg-accent hover:border-secondary hover:text-white`}>
+               <div key={style.styleUrl} onClick={() => handleStyle(style.styleUrl)} className={`${mapStyle === style.styleUrl? 'bg-primary' : 'bg-background border-2 border-accent'} cursor-pointer w-1/5 p-1 rounded-md shadow-lg hover:border-2 hover:bg-accent hover:border-secondary hover:text-white`}>
                     <img className="w-full h-3/4 rounded-full" src={style.styleImage} alt=''/>
                     <p className="flex justify-center text-sm font-medium text-text ">{style.styleName}</p>
                 </div>
