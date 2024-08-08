@@ -8,7 +8,7 @@ import Labels from "./Labels";
 import LayoutCard from "./LayoutCard";
 import Order from "./Order";
 
-const SideBar = ({accessToken, mapboxgl, inputValue, setInputValue, mapInstanceRef, orientation, setOrientation, mapStyle, setMapStyle, mapSize, setMapSize, mapFormat, setMapFormat, headline, setHeadline, tagline, setTagline, subtitle, setSubtitle, labels, setLabels, mapLocation, mapLayout, setMapLayout}) => {
+const SideBar = ({accessToken, mapboxgl, inputValue, setInputValue, mapInstanceRef, orientation, setOrientation, mapStyle, setMapStyle, mapSize, setMapSize, mapFormat, setMapFormat, headline, setHeadline, tagline, setTagline, subtitle, setSubtitle, labels, setLabels, mapLocation, mapLayout, setMapLayout, finalOrder, captureScreenshot}) => {
 
 
     return (
@@ -45,7 +45,7 @@ const SideBar = ({accessToken, mapboxgl, inputValue, setInputValue, mapInstanceR
                 </div>
 
                 <div className="sticky bottom-0">
-                    <Order />
+                    <Order finalOrder={finalOrder} captureScreenshot={captureScreenshot}/>
                 </div>
 
             </div>

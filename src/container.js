@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { reverseGeocode, processGeocodeResponse } from './utils/mapboxApi';
 import mapboxgl from 'mapbox-gl';
+import html2canvas from 'html2canvas';
 import Map from "./Map";
 import SideBar from './SideBar';
-
-
 
 
 const Container = ()=> {
@@ -33,6 +32,18 @@ const Container = ()=> {
     const [tagline, setTagline ] = useState(null);
     const [subtitle, setSubtitle ] = useState(null);
     const [labels, setLabels ] = useState(true);
+    const[finalOrder, setFinalOrder ] = useState({
+        Style: mapStyle,
+        Layout: mapLayout,
+        Orientation: orientation,
+        Size: mapSize,
+        'Map Data': mapData,
+        Headline: headline,
+        Tagline: tagline,
+        Subtitle: subtitle,
+        Labels: labels,
+        Format: mapFormat
+    });
 
     useEffect(() => {
         mapboxgl.accessToken = accessToken;
@@ -42,6 +53,7 @@ const Container = ()=> {
           center: [-74.0060, 40.7128], // starting position [lng, lat]
           zoom: 11, // starting zoom
           style: mapStyle,
+          preserveDrawingBuffer: true,
         });
     
         mapInstanceRef.current.on("load", () => {
@@ -65,10 +77,7 @@ const Container = ()=> {
         });
 
         mapInstanceRef.current.addControl(new mapboxgl.NavigationControl());
-
-        
-        
-        
+     
 
       }, []);
     
@@ -93,6 +102,21 @@ const Container = ()=> {
         });
     }, [])
 
+
+    useEffect( ()=> {
+        setFinalOrder({
+            Style: mapStyle,
+            Layout: mapLayout,
+            Orientation: orientation,
+            Size: mapSize,
+            'Map Data': mapData,
+            Headline: headline,
+            Tagline: tagline,
+            Subtitle: subtitle,
+            Labels: labels,
+            Format: mapFormat,
+        })
+    }, [mapStyle, mapLayout, orientation, mapSize, mapData, headline, tagline, subtitle, labels, mapFormat]);
 
     useEffect(()=> {
         console.log('Map Data: ', mapData);
@@ -122,12 +146,31 @@ const Container = ()=> {
         }
     }, [mapData])
 
-    useEffect(() => {
-        console.log('Labels state changed:', labels);
-      }, [labels]);
+    const captureScreenshot = async () => {
+        const mapContainer = document.getElementById('map-canvas')
+        if (!mapContainer) {
+            console.error('Map container not found');
+            return;
+        }
+        try {
+            const canvas = await html2canvas(mapContainer, {useCORS: true})
+            const image = canvas.toDataURL('image/png')
+            const link = document.createElement('a')
+            link.href = image
+            link.download = 'map-container.png'
+            document.body.appendChild(link)
+            link.click();
+            document.body.removeChild(link)
+            console.log('Image: ', image)
+        } catch (err) {
+            console.log(err)
+        }
+        }
+
+
 
     return (
-    <div className="grid grid-rows-auto lg:grid-rows-12 grid-cols-1 lg:grid-cols-12 h-screen">
+    <div  className="grid grid-rows-auto lg:grid-rows-12 grid-cols-1 lg:grid-cols-12 h-screen">
         <div className="row-start-1 lg:row-span-12 col-start-1 lg:col-start-4 md:col-span-9 bg-background">
             <Map mapContainerRef={mapContainerRef} 
             orientation={orientation} 
@@ -166,7 +209,9 @@ const Container = ()=> {
             mapLocation={mapLocation}
             mapLayout={mapLayout}
             setMapLayout={setMapLayout}
-            
+            finalOrder={finalOrder}
+            captureScreenshot={captureScreenshot}
+
             />
         </div>
     </div>

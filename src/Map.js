@@ -45,7 +45,7 @@ const Map = ({mapContainerRef, orientation, mapData, mapLocation, headline, tagl
      <div className="flex justify-center items-center w-full h-screen overflow-hidden">
       <div style={{ transform: `scale(${scale})`, transformOrigin: 'center' }}>
         <div className={`relative ${orientation==='landscape'? landscapeStyle : portraitStyle} bg-white shadow-black shadow-2xl p-2`}>
-        <div className="relative flex h-full w-full">
+        <div id='map-canvas' className="relative flex h-full w-full">
         <div className="p-1 h-full w-full">
           <div id="map-container" ref={mapContainerRef} className="w-full h-full" />
         </div>
