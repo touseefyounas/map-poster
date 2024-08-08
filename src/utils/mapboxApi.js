@@ -6,23 +6,24 @@ const reverseGeocode = async (lng, lat, MapboxApiKey, googleApiKey) => {
     if (response.features && response.features.length >0) {
         return response.features[0].properties.context;
 
-    } else {
+    } 
+    //else {
         
-        const googleData = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${googleApiKey}`);
-        const googleResponse = await googleData.json();
+    //     const googleData = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${googleApiKey}`);
+    //     const googleResponse = await googleData.json();
         
-        if (googleResponse && googleResponse.status === 'OK'){
+    //     if (googleResponse && googleResponse.status === 'OK'){
 
-            console.log('Google Address: ', googleResponse.results[0].address_components);
-            return googleResponse.results[0].address_components;
+    //         console.log('Google Address: ', googleResponse.results[0].address_components);
+    //         return googleResponse.results[0].address_components;
 
-            } else {
+    //         } else {
 
-            console.log('No address found.');
-            return 'No address found.';
+    //         console.log('No address found.');
+    //         return 'No address found.';
         
-                }
-        }
+    //             }
+    //     }
     } catch(err){
         
         console.log('Error with geocoding: ', err)

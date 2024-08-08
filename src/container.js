@@ -161,7 +161,6 @@ const Container = ()=> {
             document.body.appendChild(link)
             link.click();
             document.body.removeChild(link)
-            console.log('Image: ', image)
         } catch (err) {
             console.log(err)
         }
