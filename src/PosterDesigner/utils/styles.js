@@ -57,7 +57,7 @@ const sizes = [
     },
     {
         size: 2,
-        sizeName: '16" x 18"',
+        sizeName: '16" x 20"',
     },
     {
         size: 3,
